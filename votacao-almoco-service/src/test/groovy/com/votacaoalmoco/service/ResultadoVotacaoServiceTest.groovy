@@ -1,6 +1,7 @@
 package com.votacaoalmoco.service
 
 import com.votacaoalmoco.api.ResultadoVotacaoSemana
+import com.votacaoalmoco.entity.RestauranteEntity
 import com.votacaoalmoco.entity.ResultadoVotacaoSemanaEntity
 import com.votacaoalmoco.exception.BusinessException
 import com.votacaoalmoco.repository.ResultadoVotacaoSemanaRepository
@@ -21,6 +22,19 @@ class ResultadoVotacaoServiceTest extends Specification {
 
     void setup() {
         service = new ResultadoVotacaoService(repository, converter, contagemVotacaoService)
+    }
+
+    def "quando apurar a votação do restaurante do dia, deve realizar a contagem e salvar o escolhido no repositório" () {
+        given:
+        def dia = LocalDate.now()
+        RestauranteEntity escolhido = Mock(RestauranteEntity)
+        contagemVotacaoService.getRestauranteMaisVotado(dia) >> escolhido
+
+        when:
+        service.apurarEscolhidoDoDia()
+
+        then:
+        1 * repository.save(ResultadoVotacaoSemanaEntity.builder().dataAlmoco(dia).escolhido(escolhido).build())
     }
 
     def "quando buscar último resultado de votação, deve retorná-lo convertido"() {

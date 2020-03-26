@@ -52,6 +52,7 @@ class RestauranteServiceTest extends Specification {
         then: "erro de restaurante já registrado"
         BusinessException ex = thrown()
         ex.getMessageKey() == RESTAURANTE_JA_EXISTENTE
+        0 * repository.save(_)
     }
 
     def "quando buscar todos os restaurantes, retorná-los convertidos para objetos de api"() {
