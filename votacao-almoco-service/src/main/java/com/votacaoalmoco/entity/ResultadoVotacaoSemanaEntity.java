@@ -14,10 +14,13 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "voto")
-public class VotoEntity implements Serializable {
+@Table(name = "resultado_votacao_semana")
+/*
+* Entidade para registrar os resultados de votação da semana
+* */
+public class ResultadoVotacaoSemanaEntity implements Serializable {
 
-    private static final long serialVersionUID = 4649186256243596793L;
+    private static final long serialVersionUID = -5156546434961384453L;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -25,12 +28,10 @@ public class VotoEntity implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_restaurante", referencedColumnName = "id", nullable = false)
-    private RestauranteEntity restaurante;
-
-    @Column(name = "matricula", nullable = false)
-    private String matricula;
+    @JoinColumn(name = "id_escolhido", referencedColumnName = "id", nullable = false)
+    private RestauranteEntity escolhido;
 
     @Column(name = "dataAlmoco", nullable = false)
     private LocalDate dataAlmoco;
+
 }
