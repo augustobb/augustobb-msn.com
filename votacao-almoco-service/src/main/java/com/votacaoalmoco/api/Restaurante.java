@@ -13,6 +13,6 @@ public class Restaurante implements Serializable {
 
     private Long id;
 
-    @NotEmpty(message = "Name may not be empty")
+    @NotEmpty(message = "Nome de restaurante inválido")
     private String nome;
 }

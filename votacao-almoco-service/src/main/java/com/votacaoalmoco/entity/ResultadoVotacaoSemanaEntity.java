@@ -31,7 +31,7 @@ public class ResultadoVotacaoSemanaEntity implements Serializable {
     @JoinColumn(name = "id_escolhido", referencedColumnName = "id", nullable = false)
     private RestauranteEntity escolhido;
 
-    @Column(name = "dataAlmoco", nullable = false)
+    @Column(name = "data_almoco", nullable = false)
     private LocalDate dataAlmoco;
 
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -31,6 +32,19 @@ public class VotoEntity implements Serializable {
     @Column(name = "matricula", nullable = false)
     private String matricula;
 
-    @Column(name = "dataAlmoco", nullable = false)
+    @Column(name = "data_almoco", nullable = false)
     private LocalDate dataAlmoco;
+
+    @Column(name = "ultima_atualizacao", nullable = false)
+    private LocalDateTime ultimaAtualizacao;
+
+    @PrePersist
+    public void prePersist() {
+        ultimaAtualizacao = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void preUpdate() {
+        ultimaAtualizacao = LocalDateTime.now();
+    }
 }
