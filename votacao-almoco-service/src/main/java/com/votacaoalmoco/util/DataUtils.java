@@ -4,6 +4,10 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public final class DataUtils {
+
+    private DataUtils() {
+    }
+
     public static boolean isSabado(LocalDate localDate) {
         return DayOfWeek.SATURDAY.equals(localDate.getDayOfWeek());
     }
