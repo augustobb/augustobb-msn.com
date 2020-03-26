@@ -89,7 +89,12 @@ Decisões de Negócio
 	
 	Para o desenvolvimento da segunda estória, foi utilizado um repositório de resutados de votações da semana, que é limpado semanalmente.
 	
+	Para o desenvolvimento da terceira estória, foi disponibilizada 1 operação na API, para obtenção do último resultado de votação. 
+	Alem disso, foi utilizado o sistema de agendamento de tarefas, que executa uma vez por dia útil, em um horário antes do meio-dia, seguindo configurações de aplicação. 
 	
 
 Próximos Passos
 
+	Aumentar cobertura de testes. Em especial, com testes de integração, tendo em vista que foram feitos até o momento apenas testes unitários.
+	Mover cadastro de Restaurantes para um microserviço, de modo que seja possível expandir, de forma coesa e modularizada, as funcionalidades relacionadas especificamente a restaurantes (avaliação de restaurantes, registro de endereços, cálculo de distância e tempo de deslocamento, etc), que auxiliem ainda mais a escolha diária dos usuários.
+	Utilizar mensageria para receber notificação de resultado de votação, para que os famintos não precisem se comportar como o burro do Shrek, perguntando constantemente se já saiu o resultado da votação.
